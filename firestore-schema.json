@@ -1,0 +1,65 @@
+{
+  "collections": {
+    "users": {
+      "documents": {
+        "{userId}": {
+          "fields": {
+            "firstName": "string",
+            "lastName": "string",
+            "companyName": "string",
+            "phone": "string",
+            "email": "string",
+            "address": "string",
+            "siren": "string",
+            "createdAt": "timestamp",
+            "updatedAt": "timestamp?",
+            "settings": {
+              "defaultVatRate": "number?",
+              "defaultPaymentTerms": "string?",
+              "defaultPaymentMethod": "string?",
+              "logo": "string?"
+            }
+          }
+        }
+      }
+    },
+    "invoices": {
+      "documents": {
+        "{invoiceId}": {
+          "fields": {
+            "type": "'invoice' | 'quote'",
+            "status": "'pending' | 'paid'",
+            "supplierId": "string",
+            "supplierName": "string",
+            "companyInfo": {
+              "name": "string",
+              "siren": "string",
+              "phone": "string",
+              "email": "string",
+              "address": "string"
+            },
+            "clientName": "string",
+            "clientEmail": "string",
+            "date": "string",
+            "dueDate": "string",
+            "createdAt": "timestamp",
+            "updatedAt": "timestamp?",
+            "convertedAt": "timestamp?",
+            "items": [{
+              "description": "string",
+              "quantity": "number",
+              "price": "number"
+            }],
+            "subtotal": "number",
+            "vatRate": "number",
+            "vatAmount": "number",
+            "total": "number",
+            "notes": "string?",
+            "paymentTerms": "string?",
+            "paymentMethod": "string?"
+          }
+        }
+      }
+    }
+  }
+}
